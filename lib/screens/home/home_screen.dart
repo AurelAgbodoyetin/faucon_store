@@ -16,13 +16,13 @@ class HomeScreen extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: kPrimaryColor,
       elevation: 0,
       title: const Text(
         "FauconStore",
         style: TextStyle(
           fontFamily: "Hubballi",
-          color: kTextColor,
+          color: Colors.white,
           fontSize: 25.0,
           fontWeight: FontWeight.bold,
         ),
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           icon: SvgPicture.asset(
             "assets/icons/search.svg",
             // By default our  icon color is white
-            color: kTextColor,
+            color: Colors.white,
           ),
           onPressed: () {},
         ),
@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
           icon: SvgPicture.asset(
             "assets/icons/cart.svg",
             // By default our  icon color is white
-            color: kTextColor,
+            color: Colors.white,
           ),
           onPressed: () {},
         ),
