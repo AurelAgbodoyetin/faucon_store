@@ -1,10 +1,16 @@
-import 'package:faucon_store/constants.dart';
 import 'package:flutter/material.dart';
+
+import 'package:faucon_store/constants.dart';
+import 'package:faucon_store/models/product.dart';
 
 import '../../details/details_screen.dart';
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({Key? key}) : super(key: key);
+  final Product p;
+  const ItemCard({
+    Key? key,
+    required this.p,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,7 @@ class ItemCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const DetailsScreen(),
+            builder: (context) => DetailsScreen(p: p),
           ),
         );
       },
@@ -27,23 +33,23 @@ class ItemCard extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.asset("assets/images/bag_3.png"),
+              child: Image.asset(p.image),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
             child: Text(
               // products is out demo list
-              "Hang Top",
-              style: TextStyle(
+              p.title,
+              style: const TextStyle(
                 color: kTextLightColor,
                 fontSize: 18.0,
               ),
             ),
           ),
-          const Text(
-            "\$${45}",
-            style: TextStyle(
+          Text(
+            "\$${p.price}",
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18.0,
             ),

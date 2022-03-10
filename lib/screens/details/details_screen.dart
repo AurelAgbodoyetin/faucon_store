@@ -1,16 +1,22 @@
-import 'package:faucon_store/constants.dart';
-import 'package:faucon_store/screens/details/components/body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'package:faucon_store/constants.dart';
+import 'package:faucon_store/models/product.dart';
+import 'package:faucon_store/screens/details/components/body.dart';
+
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({Key? key}) : super(key: key);
+  final Product p;
+  const DetailsScreen({
+    Key? key,
+    required this.p,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: kPrimaryColor.withOpacity(.05),
       appBar: buildAppBar(context),
-      body: const Body(),
+      body: Body(product: p),
     );
   }
 
@@ -25,9 +31,9 @@ class DetailsScreen extends StatelessWidget {
         ),
         onPressed: () => Navigator.pop(context),
       ),
-      title: const Text(
-        "Hang Top",
-        style: TextStyle(
+      title: Text(
+        p.title,
+        style: const TextStyle(
           fontFamily: "Hubballi",
           color: Colors.white,
           fontSize: 25.0,

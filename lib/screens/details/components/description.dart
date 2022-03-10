@@ -1,10 +1,12 @@
-import 'package:faucon_store/constants.dart';
-import 'package:faucon_store/models/product.dart';
 import 'package:flutter/material.dart';
 
+import 'package:faucon_store/constants.dart';
+
 class Description extends StatelessWidget {
+  final String desc;
   const Description({
     Key? key,
+    required this.desc,
   }) : super(key: key);
 
   @override
@@ -12,7 +14,7 @@ class Description extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: Text(
-        dummyText,
+        desc,
         style: const TextStyle(height: 1.5, fontSize: 17.0),
       ),
     );

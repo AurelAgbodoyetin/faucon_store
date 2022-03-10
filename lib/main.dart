@@ -1,8 +1,10 @@
 import 'package:faucon_store/constants.dart';
 import 'package:faucon_store/screens/home/home_screen.dart';
+import 'package:faucon_store/services/products_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  ProductsService().getAllProducts();
   runApp(const FauconStoreApp());
 }
 

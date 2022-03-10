@@ -1,4 +1,5 @@
 import 'package:faucon_store/constants.dart';
+import 'package:faucon_store/models/product.dart';
 import 'package:faucon_store/screens/home/components/categories.dart';
 import 'package:faucon_store/screens/home/components/item_card.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class Body extends StatelessWidget {
               vertical: kDefaultPadding / 2,
             ),
             child: GridView.builder(
-              itemCount: 5,
+              itemCount: products.length,
               physics: const BouncingScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -27,7 +28,7 @@ class Body extends StatelessWidget {
                 crossAxisSpacing: kDefaultPadding,
                 childAspectRatio: 0.75,
               ),
-              itemBuilder: (context, index) => const ItemCard(),
+              itemBuilder: (context, index) => ItemCard(p: products[index]),
             ),
           ),
         ),

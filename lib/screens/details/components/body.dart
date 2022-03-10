@@ -1,4 +1,5 @@
 import 'package:faucon_store/constants.dart';
+import 'package:faucon_store/models/product.dart';
 import 'package:flutter/material.dart';
 
 import 'add_to_cart.dart';
@@ -7,8 +8,10 @@ import 'description.dart';
 import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
+  final Product product;
   const Body({
     Key? key,
+    required this.product,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -36,16 +39,16 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   child: Column(
-                    children: const [
-                      Description(),
-                      SizedBox(height: kDefaultPadding / 2),
-                      CounterWithFavBtn(),
-                      SizedBox(height: kDefaultPadding / 2),
-                      AddToCart()
+                    children: [
+                      Description(desc: product.description),
+                      const SizedBox(height: kDefaultPadding / 2),
+                      CounterWithFavBtn(product: product),
+                      const SizedBox(height: kDefaultPadding / 2),
+                      const AddToCart()
                     ],
                   ),
                 ),
-                const ProductTitleWithImage()
+                ProductTitleWithImage(product: product),
               ],
             ),
           )

@@ -1,9 +1,13 @@
-import 'package:faucon_store/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'package:faucon_store/constants.dart';
+import 'package:faucon_store/models/product.dart';
+
 class ProductTitleWithImage extends StatelessWidget {
+  final Product product;
   const ProductTitleWithImage({
     Key? key,
+    required this.product,
   }) : super(key: key);
 
   @override
@@ -21,7 +25,7 @@ class ProductTitleWithImage extends StatelessWidget {
             style: TextStyle(color: kTextLightColor),
           ),
           Text(
-            "Hang Top",
+            product.title,
             style: Theme.of(context)
                 .textTheme
                 .headline4!
@@ -37,7 +41,7 @@ class ProductTitleWithImage extends StatelessWidget {
                       style: TextStyle(color: kTextLightColor),
                     ),
                     TextSpan(
-                      text: "\$45",
+                      text: "\$${product.price}",
                       style: Theme.of(context).textTheme.headline4!.copyWith(
                             color: kTextColor,
                             fontWeight: FontWeight.bold,
@@ -51,7 +55,7 @@ class ProductTitleWithImage extends StatelessWidget {
                 child: Hero(
                   tag: "3",
                   child: Image.asset(
-                    "assets/images/bag_3.png",
+                    product.image,
                     fit: BoxFit.fill,
                   ),
                 ),
